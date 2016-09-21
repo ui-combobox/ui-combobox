@@ -1,0 +1,29 @@
+{
+  "name": "ui-combobox",
+  "version": "0.0.1",
+  "description": "Angular JS-native combo box",
+  "main": "index.js",
+  "eslintConfig": {
+      "env": {
+          "browser": true,
+          "node": true
+      }
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ui-combobox/ui-combobox.git"
+  },
+  "author": "http://github.com/ui-combobox/ui-combobox/graphs/contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-combobox/ui-combobox/issues"
+  },
+  "homepage": "https://github.com/ui-combobox/ui-combobox#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}

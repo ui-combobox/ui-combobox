@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="uiComboboxDemo">
+    <head>
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./src/ui-combobox.css">
+        <style>
+            html, body { height: 100%; }
+
+            body {
+                padding: 20px;
+            }
+
+            .ng-invalid.ng-touched {
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+    <body ng-controller="DemoCtrl">
+        <section>
+            <h4>Default</h4>
+            <ui-combobox ng-model="default" open-on-focus="true">
+                <ui-combobox-choice ng-repeat="state in states">
+                    <span ng-bind="state"></span>
+                </ui-combobox-choice>
+            </ui-combobox>
+        </section>
+        <section>
+            <h4>Disabled</h4>
+            <ui-combobox disabled ng-model="disabled">
+                <ui-combobox-choice ng-repeat="state in states">
+                    <span ng-bind="state"></span>
+                </ui-combobox-choice>
+            </ui-combobox>
+        </section>
+        <section>
+            <h4>Required<h4>
+            <ui-combobox ng-model="required" required open-on-focus="false">
+                <ui-combobox-choice ng-repeat="state in states">
+                    <span ng-bind="state"></span>
+                </ui-combobox-choice>
+            </ui-combobox>
+        </section>
+    </body>
+    <script src="./node_modules/angular/angular.js"></script>
+    <script src="./src/ui-combobox.js"></script>
+    <script>
+        angular.module('uiComboboxDemo', ['ui.combobox']).controller('DemoCtrl', [
+            '$http',
+            '$scope',
+        function($http, $scope) {
+            $http.get('./misc/data/states.json').then(function(response) {
+                $scope.states = response.data;
+            });
+        }]);
+    </script>
+</html>
