@@ -1,9 +1,11 @@
-# ui-combobox
+# UI Combobox
 Angular JS-native combo box
+
+[![Build Status](https://travis-ci.org/ui-combobox/ui-combobox.svg?branch=master)](https://travis-ci.org/ui-combobox/ui-combobox)
 
 ## Installation
 
-- Node: `npm install -save ui-combobox` or
+- Node: `npm install --save ui-combobox` or
 - Bower `bower install --save ui-combobox`
 
 ## Development
