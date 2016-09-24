@@ -13,7 +13,37 @@
      */
     combobox.constant('uiComboboxConfig', {
         /**
-         * Open the dropdown on input focus. Defaults to false.
+         * Appends the dropdown to the body in order to fix overflow issues. Defaults to `false`.
+         *
+         * todo Implement this correctly (currently does nothing).
+         */
+        appendToBody: false,
+
+        /**
+         * Close the dropdown upon selection. Defaults to `true`.
+         *
+         * todo Implement this correctly (currently does nothing).
+         */
+        closeOnSelect: true,
+
+        /**
+         * The position the dropdown will be rendered when opened.
+         * Accepted values are `'top'`, `'bottom'`, and `'auto'`. Defaults to `'auto'`.
+         *
+         * todo Implement this correctly (currently does nothing).
+         */
+        dropdownPosition: 'auto',
+
+        /**
+         * Force a matching selection to be made. This is to be used when
+         * manually entry is not accepted. Defaults to `false`.
+         *
+         * todo Implement this correctly (currently does nothing).
+         */
+        forceSelection: false,
+
+        /**
+         * Open the dropdown on input focus. Defaults to `false`.
          */
         openOnFocus: false
     });
