@@ -1,7 +1,5 @@
-# UI Combobox
+# UI Combobox [![Build Status](https://travis-ci.org/ui-combobox/ui-combobox.svg?branch=master)](https://travis-ci.org/ui-combobox/ui-combobox) [![Join the chat at https://gitter.im/ui-combobox/ui-combobox](https://badges.gitter.im/ui-combobox/ui-combobox.svg)](https://gitter.im/ui-combobox/ui-combobox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
 Angular JS-native combo box
-
-[![Build Status](https://travis-ci.org/ui-combobox/ui-combobox.svg?branch=master)](https://travis-ci.org/ui-combobox/ui-combobox)
 
 ## Installation
 
