@@ -2,28 +2,26 @@
   "name": "ui-combobox",
   "version": "0.0.1",
   "description": "Angular JS-native combo box",
-  "main": "index.js",
-  "eslintConfig": {
-      "env": {
-          "browser": true,
-          "node": true
-      }
-  },
-  "scripts": {
-    "test": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ui-combobox/ui-combobox.git"
-  },
-  "author": "http://github.com/ui-combobox/ui-combobox/graphs/contributors",
+  "repository": "https://github.com/ui-combobox/ui-combobox",
+  "author": "https://github.com/ui-combobox/ui-combobox/graphs/contributors",
+  "homepage": "https://github.com/ui-combobox/ui-combobox",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ui-combobox/ui-combobox/issues"
-  },
-  "homepage": "https://github.com/ui-combobox/ui-combobox#readme",
+  "main": "dist/ui-combobox.js",
   "dependencies": {
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7"
-  }
+  },
+  "scripts": {
+    "deploy": "cp -r src/ dist/ && uglifyjs src/ui-combobox.js -o dist/ui-combobox.min.js && cssnano src/ui-combobox.css dist/ui-combobox.min.css",
+    "lint": "eslint test src *.js",
+    "setup": "cp hooks/pre-commit .git/hooks/pre-commit",
+    "test": "./node_modules/karma/bin/karma start"
+  },
+  "files": [
+    "dist",
+    "misc",
+    "src",
+    "LICENSE",
+    "README.md"
+  ]
 }

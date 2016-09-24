@@ -1,17 +1,22 @@
 {
   "name": "ui-combobox",
+  "version": "0.0.1",
   "description": "Angular JS-native combo box",
-  "main": "index.js",
   "authors": [
-    "http://github.com/ui-combobox/ui-combobox/graphs/contributors"
+    "https://github.com/ui-combobox/ui-combobox/graphs/contributors"
   ],
-  "license": "MIT",
   "homepage": "https://github.com/ui-combobox/ui-combobox",
+  "license": "MIT",
+  "main": "dist/ui-combobox.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  },
   "ignore": [
-    "**/.*",
+    "hooks",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    ".*",
+    "package.json"
   ]
 }

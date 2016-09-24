@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="uiComboboxDemo">
+    <head>
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/src/ui-combobox.css">
+		<link rel="stylesheet" href="/demos/demo.css">
+    </head>
+    <body ng-controller="DemoCtrl">
+        <section>
+            <h4>Filtering</h4>
+            <ui-combobox ng-model="filtering">
+                <ui-combobox-choice ng-repeat="state in states | filter:filtering.value">
+                    <span ng-bind="state"></span>
+                </ui-combobox-choice>
+            </ui-combobox>
+        </section>
+    </body>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/src/ui-combobox.js"></script>
+    <script>
+        angular.module('uiComboboxDemo', ['ui.combobox']).controller('DemoCtrl', [
+            '$http',
+            '$scope',
+        function($http, $scope) {
+            $http.get('/misc/data/states.json').then(function(response) {
+                $scope.states = response.data;
+            });
+        }]);
+    </script>
+</html>
