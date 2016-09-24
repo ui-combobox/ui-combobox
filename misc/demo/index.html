@@ -1,8 +1,8 @@
 <!doctype html>
 <html ng-app="uiComboboxDemo">
     <head>
-        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./src/ui-combobox.css">
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/src/ui-combobox.css">
         <style>
             html, body { height: 100%; }
 
@@ -41,14 +41,14 @@
             </ui-combobox>
         </section>
     </body>
-    <script src="./node_modules/angular/angular.js"></script>
-    <script src="./src/ui-combobox.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/src/ui-combobox.js"></script>
     <script>
         angular.module('uiComboboxDemo', ['ui.combobox']).controller('DemoCtrl', [
             '$http',
             '$scope',
         function($http, $scope) {
-            $http.get('./misc/data/states.json').then(function(response) {
+            $http.get('/misc/data/states.json').then(function(response) {
                 $scope.states = response.data;
             });
         }]);
