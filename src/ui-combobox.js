@@ -55,8 +55,7 @@
         return {
             require: ['ngModel'],
             restrict: 'AE',
-            // todo fix template url path
-            templateUrl: 'src/ui-combobox.html',
+            templateUrl: 'ui-combobox.html',
             transclude: true,
             scope: {
                 disabled: '=?ngDisabled',
@@ -118,8 +117,7 @@
             replace: true,
             require: '^uiCombobox',
             restrict: 'AE',
-            // todo fix template url path
-            templateUrl: 'src/ui-combobox-choice.html',
+            templateUrl: 'ui-combobox-choice.html',
             transclude: true,
             link: function(scope, $element, attrs, ctrl) {
                 // todo implmenet correct link logic

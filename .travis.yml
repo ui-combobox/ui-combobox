@@ -6,5 +6,5 @@ node_js:
 before_script:
   - npm install
 script:
-  - npm test
-  - npm run lint
+  - gulp test
+  - gulp lint

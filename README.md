@@ -3,8 +3,8 @@ Angular JS-native combo box
 
 ## Installation
 
-- Node: `npm install --save ui-combobox` or
-- Bower `bower install --save ui-combobox`
+- Node: `npm install --save ui-combobox`
+- Bower: `bower install --save ui-combobox`
 
 ## Documentation
 

@@ -14,7 +14,14 @@
   "devDependencies": {
     "angular-mocks": "^1.5.8",
     "chai": "^3.5.0",
+    "del": "^2.2.2",
     "eslint": "^3.6.0",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
     "karma": "^1.3.0",
     "karma-chai-plugins": "^0.8.0",
     "karma-mocha": "^1.1.1",
@@ -23,13 +30,14 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "mocha": "^3.0.2",
     "phantomjs-prebuilt": "^2.1.12",
+    "run-sequence": "^1.2.2",
     "sinon": "^1.17.6"
   },
   "scripts": {
-    "deploy": "cp -r src/ dist/ && uglifyjs src/ui-combobox.js -o dist/ui-combobox.min.js && cssnano src/ui-combobox.css dist/ui-combobox.min.css",
-    "lint": "eslint test src *.js",
-    "setup": "cp hooks/pre-commit .git/hooks/pre-commit",
-    "test": "./node_modules/karma/bin/karma start"
+    "deploy": "gulp deploy",
+    "lint": "gulp lint",
+    "setup": "gulp setup",
+    "test": "gulp test"
   },
   "files": [
     "dist",
