@@ -23,13 +23,19 @@ Note: `*` denotes not yet implemented.
 
 Clone the repository, and get yourself setup:
 
+- Install [Node.js](https://nodejs.org/) and NPM.
+- `npm install -g gulp` - Installs all global dependencies (currently only `gulp`).
 - `npm install` - Installs all project dependencies.
-- `npm run setup` - Copies git hooks.
+- `npm run setup` or `gulp setup` - Runs necessary one time workspace setup.
 
-When needed, lint your code. Will happen automatically on commit.
+When needed, lint your code (will happen automatically on commit):
 
-- `npm run lint`
+- `npm run lint` or `gulp lint`
 
 Run tests:
 
-- `npm test`
+- `npm test` or `gulp test`
+
+Deploy code:
+
+- `npm run deploy` or `gulp deploy`

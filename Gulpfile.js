@@ -81,4 +81,7 @@
             configFile: __dirname + '/karma.conf.js'
         }, done).start();
     });
+
+    // Default gulp task
+    gulp.task('default', ['lint', 'test']);
 })();
