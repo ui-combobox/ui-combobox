@@ -14,7 +14,7 @@ Global configuration object to easily set options as needed. All configuration s
 - **appendToBody*** - Appends the dropdown to the body in order to fix overflow issues. Defaults to `false`.
 - **closeOnSelect*** - Close the dropdown upon selection. Defaults to `true`.
 - **dropdownPosition*** - The position the dropdown will be rendered when opened. Accepted values are `'top'`, `'bottom'`, and `'auto'`. Defaults to `'auto'`.
-- **forceSelection*** - Force a matching selection to be made. This is to be used when manually entry is not accepted. Defaults to `false`.
+- **forceSelection** - Force a matching selection to be made. This is to be used when manually entry is not accepted. Defaults to `false`.
 - **openOnFocus** - Open the dropdown on input focus. Defaults to `false`.
 
 Note: `*` denotes not yet implemented.

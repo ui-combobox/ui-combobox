@@ -59,6 +59,7 @@
             transclude: true,
             scope: {
                 disabled: '=?ngDisabled',
+                forceSelection: '=',
                 isOpen: '=?',
                 model: '=ngModel',
                 openOnFocus: '=',

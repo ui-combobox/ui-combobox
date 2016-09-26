@@ -1,8 +1,9 @@
 <div class="input-group">
     <input
         class="form-control"
+        ng-readonly="forceSelection === true || (forceSelection !== false && uiComboboxConfig.forceSelection)"
         ng-disabled="disabled"
-        ng-focus="openOnFocus === false || (!openOnFocus && uiComboboxConfig.openOnFocus === false)|| open()"
+        ng-focus="openOnFocus === false || (openOnFocus !== true && !uiComboboxConfig.openOnFocus) || open()"
         ng-model="model.value"
         ng-required="required"
 		title="{{ model.value }}"
