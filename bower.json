@@ -14,10 +14,14 @@
   },
   "ignore": [
     ".*",
-    "build",
     "bower_components",
+    "build",
+    "Gulpfile.js",
     "hooks",
+    "karma.conf.js",
+    "misc",
     "node_modules",
-    "package.json"
+    "package.json",
+    "test"
   ]
 }

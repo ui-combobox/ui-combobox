@@ -1,6 +1,10 @@
 .*
 bower_components
 build
+Gulpfile.js
 hooks
+karma.conf.js
+misc
 node_modules
 package.json
+test
