@@ -8,7 +8,7 @@
     describe('ng-model', function() {
         beforeEach(function() {
             // Dependencies for test(s)
-            module('templates', 'ui.combobox');
+            module('ui.combobox');
 
             // Inject necessary var(s)
             inject(function(_$compile_, _$rootScope_) {

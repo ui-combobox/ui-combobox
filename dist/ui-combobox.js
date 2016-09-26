@@ -9,7 +9,7 @@
      * options for entire application.
      *
      * Note: All matching attribute properties will take predence over configuration.
-     * This is accomplished via the explicit `foo === false` check(s) in the template(s).
+     * This is accomplished via the explicit check(s) in the template(s).
      */
     combobox.constant('uiComboboxConfig', {
         /**
@@ -53,18 +53,20 @@
         'uiComboboxConfig',
     function($document, uiComboboxConfig) {
         return {
-            require: ['ngModel'],
+            require: 'ngModel',
             restrict: 'AE',
             templateUrl: 'ui-combobox.html',
             transclude: true,
             scope: {
                 disabled: '=?ngDisabled',
+                forceSelection: '=',
                 isOpen: '=?',
                 model: '=ngModel',
                 openOnFocus: '=',
+                placeholder: '@',
                 required: '=?ngRequired'
             },
-            link: function(scope, $element, attrs, ctrls) {
+            link: function(scope, $element, attrs, ngModelCtrl) {
                 // Allow users to use native [disabled]
                 if (angular.isDefined(attrs.disabled)) {
                     scope.disabled = true
@@ -119,9 +121,12 @@
             restrict: 'AE',
             templateUrl: 'ui-combobox-choice.html',
             transclude: true,
-            link: function(scope, $element, attrs, ctrl) {
+            link: function(scope, $element, attrs, uiComboboxCtrl) {
                 // todo implmenet correct link logic
             }
         };
     }]);
 }());
+
+angular.module('ui.combobox').run(['$templateCache', function($templateCache) {$templateCache.put('ui-combobox-choice.html','<li><a ng-transclude></a></li>');
+$templateCache.put('ui-combobox.html','<div class="input-group"><input class="form-control" ng-disabled="disabled" ng-focus="openOnFocus === false || (openOnFocus !== true && !uiComboboxConfig.openOnFocus) || open()" ng-model="model.value" ng-readonly="forceSelection === true || (forceSelection !== false && uiComboboxConfig.forceSelection)" ng-required="required" placeholder="{{ placeholder }}" title="{{ model.value }}" type="text"><div class="input-group-btn"><button class="btn btn-default dropdown-toggle" ng-click="toggle()" ng-disabled="disabled" type="button"><span class="caret"></span></button></div></div><ul class="dropdown-menu" ng-show="isOpen" ng-transclude></ul>');}]);

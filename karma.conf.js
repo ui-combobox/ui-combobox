@@ -6,22 +6,15 @@
             files: [
                 'node_modules/angular/angular.js',
                 'node_modules/angular-mocks/angular-mocks.js',
-                'src/ui-combobox.js',
+                'build/ui-combobox.js',
                 'test/helpers.js',
-                'test/**/*.spec.js',
-                'src/*.html'
+                'test/**/*.spec.js'
             ],
             browsers: ['PhantomJS'],
             frameworks: ['chai', 'mocha', 'sinon-chai'],
             reporters: ['mocha'],
             autoWatch: false,
-            singleRun: true,
-            preprocessors: {
-                'src/*.html': ['ng-html2js'],
-            },
-            ngHtml2JsPreprocessor: {
-                moduleName: 'templates'
-            }
+            singleRun: true
         });
     };
 }());

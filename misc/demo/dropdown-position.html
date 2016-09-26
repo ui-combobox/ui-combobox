@@ -6,10 +6,12 @@
 		<link rel="stylesheet" href="/misc/demo/demo.css">
     </head>
     <body ng-controller="DemoCtrl">
-        <pre>uiComboboxConfig.forceSelection: {{ uiComboboxConfig.forceSelection }}</pre>
-        <button class="btn btn-primary" ng-click="uiComboboxConfig.forceSelection = !uiComboboxConfig.forceSelection">Flip</button>
+        <pre>uiComboboxConfig.dropdownPosition: {{ uiComboboxConfig.dropdownPosition }}</pre>
+        <button class="btn btn-primary" ng-click="uiComboboxConfig.dropdownPosition = 'auto'">Auto</button>
+        <button class="btn btn-primary" ng-click="uiComboboxConfig.dropdownPosition = 'top'">Top</button>
+        <button class="btn btn-primary" ng-click="uiComboboxConfig.dropdownPosition = 'bottom'">Bottom</button>
         <section>
-            <h4>Force Selection - Undefined</h4>
+            <h4>Dropdown Position - Undefined</h4>
             <ui-combobox ng-model="model">
                 <ui-combobox-choice ng-repeat="state in states">
                     <span ng-bind="state"></span>
@@ -17,16 +19,24 @@
             </ui-combobox>
         </section>
         <section>
-            <h4>Force Selection - True</h4>
-            <ui-combobox force-selection="true" ng-model="model">
+            <h4>Dropdown Position - 'auto'</h4>
+            <ui-combobox dropdown-position="auto" ng-model="model">
                 <ui-combobox-choice ng-repeat="state in states">
                     <span ng-bind="state"></span>
                 </ui-combobox-choice>
             </ui-combobox>
         </section>
         <section>
-            <h4>Force Selection - False</h4>
-            <ui-combobox force-selection="false" ng-model="model">
+            <h4>Dropdown Position - 'top'</h4>
+            <ui-combobox dropdown-position="top" ng-model="model">
+                <ui-combobox-choice ng-repeat="state in states">
+                    <span ng-bind="state"></span>
+                </ui-combobox-choice>
+            </ui-combobox>
+        </section>
+        <section>
+            <h4>Dropdown Position - 'bottom'</h4>
+            <ui-combobox dropdown-position="bottom" ng-model="model">
                 <ui-combobox-choice ng-repeat="state in states">
                     <span ng-bind="state"></span>
                 </ui-combobox-choice>

@@ -9,7 +9,7 @@
      * options for entire application.
      *
      * Note: All matching attribute properties will take predence over configuration.
-     * This is accomplished via the explicit `foo === false` check(s) in the template(s).
+     * This is accomplished via the explicit check(s) in the template(s).
      */
     combobox.constant('uiComboboxConfig', {
         /**
@@ -53,7 +53,7 @@
         'uiComboboxConfig',
     function($document, uiComboboxConfig) {
         return {
-            require: ['ngModel'],
+            require: 'ngModel',
             restrict: 'AE',
             templateUrl: 'ui-combobox.html',
             transclude: true,
@@ -66,7 +66,7 @@
                 placeholder: '@',
                 required: '=?ngRequired'
             },
-            link: function(scope, $element, attrs, ctrls) {
+            link: function(scope, $element, attrs, ngModelCtrl) {
                 // Allow users to use native [disabled]
                 if (angular.isDefined(attrs.disabled)) {
                     scope.disabled = true
@@ -121,7 +121,7 @@
             restrict: 'AE',
             templateUrl: 'ui-combobox-choice.html',
             transclude: true,
-            link: function(scope, $element, attrs, ctrl) {
+            link: function(scope, $element, attrs, uiComboboxCtrl) {
                 // todo implmenet correct link logic
             }
         };

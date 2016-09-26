@@ -2,19 +2,72 @@
     'use strict';
 
     // Lib(s)
+    var concat = require('gulp-concat');
     var cssnano = require('gulp-cssnano');
     var del = require('del');
     var eslint = require('gulp-eslint');
     var gulp = require('gulp');
+    var htmlmin = require('gulp-htmlmin');
+    var merge = require('merge-stream');
     var rename = require("gulp-rename");
     var runSequence = require('run-sequence');
     var Server = new require('karma').Server;
     var sourcemaps = require('gulp-sourcemaps');
+    var templateCache = require('gulp-angular-templatecache');
     var uglify = require('gulp-uglify');
+
+    // Build everything
+    gulp.task('build', function() {
+        runSequence('build:css', 'build:js');
+    });
+
+    // Build css scripts
+    gulp.task('build:css', function() {
+        // Since currently writing plain css, simply copy
+        return gulp.src('src/ui-combobox.css')
+            .pipe(gulp.dest('build'));
+    });
+
+    // Build src scripts
+    gulp.task('build:js', function() {
+        // Select proper scripts
+        var scripts = gulp.src('src/ui-combobox.js');
+
+        // Select proper templates, minify,
+        // and turn into angular template cache js
+        var templates = gulp.src('src/*.html')
+            .pipe(htmlmin({
+                collapseWhitespace: true
+            }))
+            .pipe(templateCache({
+                module: 'ui.combobox'
+            }));
+
+        // Merge into single js file
+        return merge(scripts, templates)
+            .pipe(concat('ui-combobox.js'))
+            .pipe(gulp.dest('build'));
+    });
+
+    // Clean everything
+    gulp.task('clean', function() {
+        runSequence('clean:build', 'clean:dist');
+    });
+
+    // Clean build directory
+    gulp.task('clean:build', function() {
+        return del(['build/**/*']);
+    });
 
     // Clean dist directory
     gulp.task('clean:dist', function() {
         return del(['dist/**/*']);
+    });
+
+    // Copy build to dist
+    gulp.task('copy:build', function() {
+        return gulp.src('build/*')
+            .pipe(gulp.dest('dist'));
     });
 
     // Copy hook(s)
@@ -24,16 +77,10 @@
             .pipe(gulp.dest('.git/hooks'));
     });
 
-    // Copy necessary src file(s) to dist
-    gulp.task('copy:src', function() {
-        // Move src into .git
-        return gulp.src('src/*.{css,js}')
-            .pipe(gulp.dest('dist'));
-    });
-
     // Deploy file(s) to dist directory
     gulp.task('deploy', function() {
-        runSequence('clean:dist', ['copy:src', 'compress:css', 'compress:js']);
+        // Race conditions require calling each task individually
+        runSequence('clean:build', 'clean:dist', 'build:css', 'build:js', 'compress:css', 'compress:js', 'copy:build');
     });
 
     // Lint file(s)
@@ -47,28 +94,33 @@
             .pipe(eslint.failAfterError());
     });
 
+    // Compress everything
+    gulp.task('compress', function() {
+        runSequence('compress:css', 'compress:js');
+    });
+
     // Compress css file(s) and move to dist directory
     gulp.task('compress:css', function() {
-        return gulp.src('src/*.css')
+        return gulp.src('build/ui-combobox.css')
             .pipe(sourcemaps.init())
             .pipe(cssnano())
             .pipe(rename({
                 extname: '.min.css'
             }))
             .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest('dist'));
+            .pipe(gulp.dest('build'));
     });
 
     // Compress js file(s) and move to dist directory
     gulp.task('compress:js', function() {
-        return gulp.src('src/*.js')
+        return gulp.src('build/ui-combobox.js')
             .pipe(sourcemaps.init())
             .pipe(uglify())
             .pipe(rename({
                 extname: '.min.js'
             }))
             .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest('dist'));
+            .pipe(gulp.dest('build'));
     });
 
     // One time project setup

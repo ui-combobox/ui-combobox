@@ -13,10 +13,11 @@
     "bootstrap": "^3.3.7"
   },
   "ignore": [
+    ".*",
+    "build",
+    "bower_components",
     "hooks",
     "node_modules",
-    "bower_components",
-    ".*",
     "package.json"
   ]
 }

@@ -5,6 +5,7 @@ node_js:
   - "4"
 before_script:
   - npm install
+  - gulp build
 script:
   - gulp test
   - gulp lint

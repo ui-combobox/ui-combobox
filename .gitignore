@@ -1,5 +1,6 @@
 # Auto generated tools
 /node_modules
+/build
 
 # Hidden files
 .DS_Store

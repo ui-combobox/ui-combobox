@@ -1,5 +1,6 @@
+.*
+bower_components
+build
 hooks
 node_modules
-bower_components
-.*
 package.json
