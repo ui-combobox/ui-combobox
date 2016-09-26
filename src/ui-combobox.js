@@ -63,6 +63,7 @@
                 isOpen: '=?',
                 model: '=ngModel',
                 openOnFocus: '=',
+                placeholder: '@',
                 required: '=?ngRequired'
             },
             link: function(scope, $element, attrs, ctrls) {
