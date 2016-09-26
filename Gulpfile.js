@@ -134,6 +134,12 @@
         }, done).start();
     });
 
+    // Watch src files
+    gulp.task('watch', function() {
+        gulp.watch(['src/ui-combobox.css'], ['build:css']);
+        gulp.watch(['src/ui-combobox.js'], ['build:js']);
+    });
+
     // Default gulp task
     gulp.task('default', ['lint', 'test']);
 })();

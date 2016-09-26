@@ -28,7 +28,11 @@ Clone the repository, and get yourself setup:
 - `npm install` - Installs all project dependencies.
 - `npm run setup` or `gulp setup` - Runs necessary one time workspace setup.
 
-When needed, lint your code (will happen automatically on commit):
+Run watch, to automatically build changes:
+
+- `npm run watch` or `gulp watch`
+
+Run lint, to lint your code (will happen automatically on commit):
 
 - `npm run lint` or `gulp lint`
 
@@ -39,3 +43,5 @@ Run tests:
 Deploy code:
 
 - `npm run deploy` or `gulp deploy`
+
+Note: Only important tasks are documented above, but there also exists a number of small/reusable tasks. If you wish to investigate, or use any of them, refer to `Gulpfile.js`.

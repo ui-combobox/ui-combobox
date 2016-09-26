@@ -40,7 +40,8 @@
     "deploy": "gulp deploy",
     "lint": "gulp lint",
     "setup": "gulp setup",
-    "test": "gulp test"
+    "test": "gulp test",
+    "watch": "gulp watch"
   },
   "files": [
     "dist",
