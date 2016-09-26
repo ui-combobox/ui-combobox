@@ -80,6 +80,9 @@
                 // Assign necessary scope var(s)
                 scope.uiComboboxConfig = uiComboboxConfig;
 
+                // Configure element properly
+                $element.addClass('ui-combobox');
+
                 var onDocumentClick = function($event) {
                     // Ignore click if closed
                     if (!scope.isOpen) { return; }
