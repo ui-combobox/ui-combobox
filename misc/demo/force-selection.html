@@ -11,25 +11,25 @@
         <section>
             <h4>Force Selection - Undefined</h4>
             <ui-combobox ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
             <h4>Force Selection - True</h4>
             <ui-combobox force-selection="true" ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
             <h4>Force Selection - False</h4>
             <ui-combobox force-selection="false" ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
     </body>

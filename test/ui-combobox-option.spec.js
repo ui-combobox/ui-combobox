@@ -5,7 +5,7 @@
     var $el;
     var $scope;
 
-    describe('ui-combobox-choice', function() {
+    describe('ui-combobox-option', function() {
         beforeEach(function() {
             // Inject necessary var(s)
             inject(function(_$rootScope_) {
@@ -13,11 +13,22 @@
                 $scope.foobars = ['A', 'B', 'C'];
 
                 $el = helpers.compile('<ui-combobox ng-model=model>\
-                    <ui-combobox-choice ng-repeat="foobar in foobars">\
+                    <ui-combobox-option ng-repeat="foobar in foobars">\
                         <span ng-bind="foobar"></span>\
-                    </ui-combobox-choice>\
+                    </ui-combobox-option>\
                 </ui-combobox>', $scope);
             });
+        });
+
+        it('errors when compiling without ng-repeat attribute', function() {
+            var wrapped = function() {
+                // Compile template
+                helpers.compile('<ui-combobox ng-model="model">\
+                    <ui-combobox-option></ui-combobox-option>\
+                </ui-combobox>', $scope);
+            };
+
+            expect(wrapped).to.throw(Error);
         });
 
         it('reflects correct dom', function() {

@@ -2,9 +2,9 @@
     <input
         class="form-control"
         ng-disabled="disabled"
-        ng-focus="openOnFocus === false || (openOnFocus !== true && !uiComboboxConfig.openOnFocus) || open()"
-        ng-model="model.value"
-        ng-readonly="forceSelection === true || (forceSelection !== false && uiComboboxConfig.forceSelection)"
+        ng-focus="openOnFocus === false || openOnFocus !== true && !uiComboboxConfig.openOnFocus || open()"
+        ng-model="model"
+        ng-readonly="forceSelection === true || forceSelection !== false && uiComboboxConfig.forceSelection"
         ng-required="required"
         placeholder="{{ placeholder }}"
 		title="{{ model.value }}"

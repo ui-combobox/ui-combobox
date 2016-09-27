@@ -13,33 +13,33 @@
         <section>
             <h4>Dropdown Position - Undefined</h4>
             <ui-combobox ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
             <h4>Dropdown Position - 'auto'</h4>
             <ui-combobox dropdown-position="auto" ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
             <h4>Dropdown Position - 'top'</h4>
             <ui-combobox dropdown-position="top" ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
             <h4>Dropdown Position - 'bottom'</h4>
             <ui-combobox dropdown-position="bottom" ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
     </body>

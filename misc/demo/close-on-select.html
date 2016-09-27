@@ -6,10 +6,10 @@
 		<link rel="stylesheet" href="/misc/demo/demo.css">
     </head>
     <body ng-controller="DemoCtrl">
-        <pre>uiComboboxConfig.openOnFocus: {{ uiComboboxConfig.openOnFocus }}</pre>
-        <button class="btn btn-primary" ng-click="uiComboboxConfig.openOnFocus = !uiComboboxConfig.openOnFocus">Flip</button>
+        <pre>uiComboboxConfig.closeOnSelect: {{ uiComboboxConfig.closeOnSelect }}</pre>
+        <button class="btn btn-primary" ng-click="uiComboboxConfig.closeOnSelect = !uiComboboxConfig.closeOnSelect">Flip</button>
         <section>
-            <h4>Open On Focus - Undefined</h4>
+            <h4>Close On Select - Undefined</h4>
             <ui-combobox ng-model="model">
                 <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
@@ -17,16 +17,16 @@
             </ui-combobox>
         </section>
         <section>
-            <h4>Open On Focus - True</h4>
-            <ui-combobox ng-model="model" open-on-focus="true">
+            <h4>Close On Select - True</h4>
+            <ui-combobox close-on-select="true" ng-model="model">
                 <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
                 </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
-            <h4>Open On Focus - False</h4>
-            <ui-combobox ng-model="model" open-on-focus="false">
+            <h4>Close On Select - False</h4>
+            <ui-combobox close-on-select="false" ng-model="model">
                 <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
                 </ui-combobox-option>

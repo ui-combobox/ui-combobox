@@ -9,9 +9,9 @@
         <section>
             <h4>Filtering</h4>
             <ui-combobox ng-model="filtering">
-                <ui-combobox-choice ng-repeat="state in states | filter:filtering.value">
+                <ui-combobox-option ng-repeat="state in states | filter:filtering.value">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
     </body>

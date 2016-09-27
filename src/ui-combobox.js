@@ -21,8 +21,6 @@
 
         /**
          * Close the dropdown upon selection. Defaults to `true`.
-         *
-         * todo Implement this correctly (currently does nothing).
          */
         closeOnSelect: true,
 
@@ -37,8 +35,6 @@
         /**
          * Force a matching selection to be made. This is to be used when
          * manually entry is not accepted. Defaults to `false`.
-         *
-         * todo Implement this correctly (currently does nothing).
          */
         forceSelection: false,
 
@@ -53,11 +49,12 @@
         'uiComboboxConfig',
     function($document, uiComboboxConfig) {
         return {
-            require: 'ngModel',
+            require: ['uiCombobox', 'ngModel'],
             restrict: 'AE',
             templateUrl: 'ui-combobox.html',
             transclude: true,
             scope: {
+                closeOnSelect: '=',
                 disabled: '=?ngDisabled',
                 forceSelection: '=',
                 isOpen: '=?',
@@ -66,7 +63,11 @@
                 placeholder: '@',
                 required: '=?ngRequired'
             },
-            link: function(scope, $element, attrs, ngModelCtrl) {
+            link: function(scope, $element, attrs, ctrls) {
+                // Grab the ctrls for easy reference
+                var uiComboboxCtrl = ctrls[0];
+                uiComboboxCtrl.ngModelCtrl = ctrls[1];
+
                 // Allow users to use native [disabled]
                 if (angular.isDefined(attrs.disabled)) {
                     scope.disabled = true
@@ -102,6 +103,21 @@
                 '$scope',
                 'uiComboboxConfig',
             function($scope, uiComboboxConfig) {
+                var uiComboboxCtrl = this;
+
+                uiComboboxCtrl.select = function(option) {
+                    // Update the model
+                    $scope.model = option;
+
+                    // Force touch
+                    uiComboboxCtrl.ngModelCtrl.$setTouched();
+
+                    // Close the dropdown is asked too on selection
+                    if ($scope.closeOnSelect === true || $scope.closeOnSelect !== false && uiComboboxConfig.closeOnSelect) {
+                        $scope.close();
+                    }
+                };
+
                 $scope.close = function() {
                     $scope.isOpen = false;
                 };
@@ -117,15 +133,38 @@
         };
     }]);
 
-    combobox.directive('uiComboboxChoice', [function() {
+    combobox.directive('uiComboboxOption', ['$compile', function($compile) {
+        // Note: Taken straight from Angular, these regex are used to parse ng-repeat
+        // to obtain the data pointers ourselves.
+        var NG_REPEAT_REGEX = /^\s*([\s\S]+?)\s+in\s+([\s\S]+?)(?:\s+as\s+([\s\S]+?))?(?:\s+track\s+by\s+([\s\S]+?))?\s*$/;
+        var KEY_VALUE_REGEX = /^(?:(\s*[\$\w]+)|\(\s*([\$\w]+)\s*,\s*([\$\w]+)\s*\))$/;
+
         return {
             replace: true,
             require: '^uiCombobox',
             restrict: 'AE',
-            templateUrl: 'ui-combobox-choice.html',
+            templateUrl: 'ui-combobox-option.html',
             transclude: true,
             link: function(scope, $element, attrs, uiComboboxCtrl) {
-                // todo implmenet correct link logic
+                // For data sharing, ng-repeat is required in this design
+                if (!angular.isDefined(attrs.ngRepeat)) {
+                    throw Error('ui-combobox-option requires the use of [ng-repeat]!');
+                }
+
+                // Parse ng-repeat to obtain correct data pointer(s)
+                // Note: Any errors with the repeat attribute will be caught via Angular already,
+                // so there is no need for added validation/error checking
+                var match = attrs.ngRepeat.match(NG_REPEAT_REGEX);
+                var lhs = match[1].match(KEY_VALUE_REGEX);
+
+                // Put identifier onto the scope
+                scope.identifier = lhs[3] || lhs[1];
+
+                // Select this option
+                scope.select = function(option) {
+                    // Call to ui-combobox ctrl with selected option
+                    uiComboboxCtrl.select(option[scope.identifier]);
+                }
             }
         };
     }]);

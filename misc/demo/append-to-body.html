@@ -11,25 +11,25 @@
         <section>
             <h4>Append To Body - Undefined</h4>
             <ui-combobox ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
             <h4>Append To Body - True</h4>
             <ui-combobox append-to-body="true" ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
         <section>
             <h4>Append To Body - False</h4>
             <ui-combobox append-to-body="false" ng-model="model">
-                <ui-combobox-choice ng-repeat="state in states">
+                <ui-combobox-option ng-repeat="state in states">
                     <span ng-bind="state"></span>
-                </ui-combobox-choice>
+                </ui-combobox-option>
             </ui-combobox>
         </section>
     </body>
