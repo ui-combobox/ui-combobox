@@ -6,6 +6,10 @@ body {
     padding: 20px;
 }
 
+section {
+    padding: 20px 0;
+}
+
 .ng-invalid.ng-touched {
     border: 1px solid red;
 }

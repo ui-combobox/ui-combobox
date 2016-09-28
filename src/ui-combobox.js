@@ -112,7 +112,7 @@
                     // Force touch
                     uiComboboxCtrl.ngModelCtrl.$setTouched();
 
-                    // Close the dropdown is asked too on selection
+                    // Close the dropdown if asked too on selection
                     if ($scope.closeOnSelect === true || $scope.closeOnSelect !== false && uiComboboxConfig.closeOnSelect) {
                         $scope.close();
                     }
@@ -133,7 +133,7 @@
         };
     }]);
 
-    combobox.directive('uiComboboxOption', ['$compile', function($compile) {
+    combobox.directive('uiComboboxOption', function() {
         // Note: Taken straight from Angular, these regex are used to parse ng-repeat
         // to obtain the data pointers ourselves.
         var NG_REPEAT_REGEX = /^\s*([\s\S]+?)\s+in\s+([\s\S]+?)(?:\s+as\s+([\s\S]+?))?(?:\s+track\s+by\s+([\s\S]+?))?\s*$/;
@@ -157,15 +157,21 @@
                 var match = attrs.ngRepeat.match(NG_REPEAT_REGEX);
                 var lhs = match[1].match(KEY_VALUE_REGEX);
 
-                // Put identifier onto the scope
-                scope.identifier = lhs[3] || lhs[1];
+                // Grab the correct identifier
+                var identifier = lhs[3] || lhs[1];
 
                 // Select this option
                 scope.select = function(option) {
                     // Call to ui-combobox ctrl with selected option
-                    uiComboboxCtrl.select(option[scope.identifier]);
-                }
+                    uiComboboxCtrl.select(option[identifier]);
+                };
+
+                // Since we can't have an isolate scope, watch for disabled changes
+                scope.$watch(attrs.ngDisabled, function(val) {
+                    // Update our scope pointer (allow users to use native [disabled])
+                    scope.disabled = angular.isDefined(attrs.disabled) || val;
+                });
             }
         };
-    }]);
+    });
 }());
