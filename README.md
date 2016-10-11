@@ -1,7 +1,8 @@
-# UI Combobox [![Build Status](https://travis-ci.org/ui-combobox/ui-combobox.svg?branch=master)](https://travis-ci.org/ui-combobox/ui-combobox) [![Join the chat at https://gitter.im/ui-combobox/ui-combobox](https://badges.gitter.im/ui-combobox/ui-combobox.svg)](https://gitter.im/ui-combobox/ui-combobox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# UI Combobox [![Build Status](https://travis-ci.org/ui-combobox/ui-combobox.svg?branch=master)](https://travis-ci.org/ui-combobox/ui-combobox) [![Join the chat at https://gitter.im/ui-combobox/ui-combobox](https://badges.gitter.im/ui-combobox/ui-combobox.svg)](https://gitter.im/ui-combobox/ui-combobox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Bower](https://img.shields.io/bower/v/ui-combobox.svg?style=flat)](https://github.com/ui-combobox/ui-combobox) [![NPM](https://img.shields.io/npm/v/ui-combobox.svg?style=flat)](https://www.npmjs.com/package/ui-combobox)
 Angular JS-native combo box
 
 ## Installation
+[![NPM](https://nodei.co/npm/ui-combobox.svg?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ui-combobox/)
 
 - Node: `npm install --save ui-combobox`
 - Bower: `bower install --save ui-combobox`
