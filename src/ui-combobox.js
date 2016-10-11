@@ -60,7 +60,7 @@
                 isOpen: '=?',
                 model: '=ngModel',
                 openOnFocus: '=',
-                placeholder: '@',
+                pattern: '=?ngPattern',
                 required: '=?ngRequired'
             },
             link: function(scope, $element, attrs, ctrls) {
@@ -68,21 +68,44 @@
                 var uiComboboxCtrl = ctrls[0];
                 uiComboboxCtrl.ngModelCtrl = ctrls[1];
 
+                // Configure element properly
+                $element.addClass('ui-combobox');
+
+                // Assign necessary scope var(s)
+                scope.uiComboboxConfig = uiComboboxConfig;
+
+                // Grab the input
+                var $input = $element.find('input');
+
+                // Allow users to use native [autofocus]
+                if (angular.isDefined(attrs.autofocus)) {
+                    $input.attr('autofocus', attrs.autofocus);
+                }
+
                 // Allow users to use native [disabled]
                 if (angular.isDefined(attrs.disabled)) {
                     scope.disabled = true
+                }
+
+                // Allow users to use native [name]
+                if (angular.isDefined(attrs.name)) {
+                    $input.attr('name', attrs.name);
+                }
+
+                // Allow users to use native [pattern]
+                if (angular.isDefined(attrs.pattern)) {
+                    scope.pattern = attrs.pattern;
+                }
+
+                // Allow users to use native [placeholder]
+                if (angular.isDefined(attrs.placeholder)) {
+                    $input.attr('placeholder', attrs.placeholder);
                 }
 
                 // Allow users to use native [required]
                 if (angular.isDefined(attrs.required)) {
                     scope.required = true;
                 }
-
-                // Assign necessary scope var(s)
-                scope.uiComboboxConfig = uiComboboxConfig;
-
-                // Configure element properly
-                $element.addClass('ui-combobox');
 
                 var onDocumentClick = function($event) {
                     // Ignore click if closed

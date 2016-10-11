@@ -4,9 +4,9 @@
         ng-disabled="disabled"
         ng-focus="openOnFocus === false || openOnFocus !== true && !uiComboboxConfig.openOnFocus || open()"
         ng-model="model"
+        ng-pattern="pattern"
         ng-readonly="forceSelection === true || forceSelection !== false && uiComboboxConfig.forceSelection"
         ng-required="required"
-        placeholder="{{ placeholder }}"
 		title="{{ model.value }}"
         type="text">
     <div class="input-group-btn">
