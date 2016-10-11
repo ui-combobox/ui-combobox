@@ -12,11 +12,13 @@ Angular JS-native combo box
 #### uiComboboxConfig
 Global configuration object to easily set options as needed. All configuration settings have matching attributes, with precedence given to the attributes.
 
-- **appendToBody*** - Appends the dropdown to the body in order to fix overflow issues. Defaults to `false`.
-- **closeOnSelect** - Close the dropdown upon selection. Defaults to `true`.
-- **dropdownPosition*** - The position the dropdown will be rendered when opened. Accepted values are `'top'`, `'bottom'`, and `'auto'`. Defaults to `'auto'`.
-- **forceSelection** - Force a matching selection to be made. This is to be used when manually entry is not accepted. Defaults to `false`.
-- **openOnFocus** - Open the dropdown on input focus. Defaults to `false`.
+Name | Type | Description | Default
+-----|------|-------------|--------
+appendToBody* | Boolean | Appends the dropdown to the body in order to fix overflow issues. | `false`
+closeOnSelect | Boolean | Close the dropdown upon selection. | `true`
+dropdownPosition* | String | The position the dropdown will be rendered when opened. Accepted values are `'top'`, `'bottom'`, and `'auto'` | `'auto'`
+forceSelection | Boolean | Force a matching selection to be made. This is to be used when manual entry is not accepted. | `false`
+openOnFocus | Boolean | Open the dropdown on input focus. | `false`
 
 Note: `*` denotes not yet implemented.
 
